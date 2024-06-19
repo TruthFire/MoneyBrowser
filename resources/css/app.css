@@ -2112,7 +2112,7 @@ span.today {
     content: attr(data-count);
 }
 
-.step-titile {
+.step-title {
     font-weight: 700;
     font-size: 28px;
     line-height: 34px;
