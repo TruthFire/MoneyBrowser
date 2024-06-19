@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/js/landing/ui.js'],
+            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/js/landing/ui.js', 'resources/css/auth.css'],
             refresh: true,
         }),
     ],

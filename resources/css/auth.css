@@ -1,0 +1,125 @@
+body {
+    font-family: Lato,-apple-system,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Droid Sans,Helvetica Neue,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+    background: #e9e9e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.auth-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 500px;
+}
+.auth-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.auth-container .socials {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.auth-container .socials button.social-btn {
+    max-width: 65px;
+    font-size: 2rem;
+    border-color: transparent;
+    padding: 0.5rem 0.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+.auth-container button.telegram {
+    background-color: #2AABEE;
+    color: white;
+}
+.auth-container button.google {
+    background-color: #4285F4;
+    color: #fff;
+}
+.auth-container button.vk {
+    background-color: #4C75A3;
+    color: #fff;
+}
+.auth-container button.yandex {
+    background-color: #ffcc00;
+    color: #FC3F1D;
+}
+label {
+    float: left;
+}
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f6f6f6;
+}
+
+.auth-container input:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
+}
+.auth-container .forgot {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    color: #757575;
+    text-decoration: none;
+}
+.auth-container .signin-button {
+    background-color: #232d42;
+    color: white;
+    transition: background-color 0.15s ease-in;
+    height: 40px;
+}
+.auth-container .signin-button:hover {
+    background-color: #4CAF50;
+}
+.auth-container .signup-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.auth-container .signup-link a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+.auth-container .remember-me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.auth-container .remember-me label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.auth-container .remember-me input {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.auth-container .splitter {
+    margin: 15px 0;
+    color: #5a5a5a;
+}
