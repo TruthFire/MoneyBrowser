@@ -1,18 +1,7 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Authentication Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
-    |
-    */
-
+    'dashboard' => 'Dashboard',
     'balance' => 'Balance',
     'today' => 'Today',
     'on_referrals' => 'On referrals',
@@ -21,7 +10,7 @@ return [
     'earning_lvl' => 'Earning level',
     'withdraw_title' => 'Withdrawals',
     'withdraw' => 'Withdraw',
-    'withdraw_rate' => 'At the rate of 100 points = 0.01 USD.',
+    'withdraw_rate' => 'At the rate of 100 points = $0.01 USD.',
     'wallet_num' => 'Wallet number',
     'amount' => 'Amount (in points)',
     'day_limit' => 'Daily limit',
