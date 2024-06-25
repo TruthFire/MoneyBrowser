@@ -6,7 +6,8 @@
 @section('content')
     <h2>{{__('auth.signin')}}</h2>
 
-    <form>
+    <form action="{{url('/login')}}" method="post">
+        @csrf
         <label for="username">{{ __('auth.email_inp') }}</label>
         <input type="email" placeholder={{ __('auth.email_inp') }} name="email">
         <label for="password">{{ __('auth.password_inp') }}</label>
@@ -18,7 +19,7 @@
         <button type="submit" class="signin-button">{{ __('auth.login') }}</button>
     </form>
     <div class="signup-link">
-        {{ __('auth.not_member') }} <a href="#">{{ __('auth.signup_now') }}</a>
+        {{ __('auth.not_member') }} <a href="{{url('/register')}}">{{ __('auth.signup_now') }}</a>
     </div>
     <div class="splitter">
         — {{ __('auth.or_with') }} —

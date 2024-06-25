@@ -32,5 +32,6 @@ return [
     'account_create' => 'Create my Account',
     'registered' => 'Already registered?',
     'login_now' => 'Log In Now!',
+    'submit' => 'Submit',
 
 ];

@@ -2,7 +2,9 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Referral;
 use App\Models\User;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -31,10 +33,21 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        if(Cookie::has('ref_partner')) {
+            Referral::create([
+                'user_id' => $user->id,
+                'referred_by' => Cookie::get('ref_partner'),
+            ]);
+
+            Cookie::queue(Cookie::forget('ref_partner'));
+        }
+
+        return $user;
     }
 }

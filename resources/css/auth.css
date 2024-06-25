@@ -57,11 +57,22 @@ body {
     background-color: #ffcc00;
     color: #FC3F1D;
 }
-label {
-    float: left;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
 }
+
+.input-group .error {
+    color: #ff2b2b;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .auth-container input[type="email"],
-.auth-container input[type="password"] {
+.auth-container input[type="password"],
+.auth-container input[type="text"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -123,3 +134,4 @@ label {
     margin: 15px 0;
     color: #5a5a5a;
 }
+

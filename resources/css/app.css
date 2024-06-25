@@ -867,7 +867,7 @@ a.solid {
 
 .pay-icon {
     display: block;
-    background: transparent url('../img/pay-icon.png') no-repeat 0 0;
+    background: transparent url('../../public/img/pay-icon.png') no-repeat 0 0;
     background-size: calc(200px / 2) calc(660px / 2);
     flex: none;
     background-position-x: 0;
@@ -875,7 +875,7 @@ a.solid {
 
 .pay-icon2 {
     display: block;
-    background: transparent url('../img/new/crypto-icon.png') no-repeat 0 0;
+    background: transparent url('/img/new/crypto-icon.png') no-repeat 0 0;
     background-size: calc(71px / 2) calc(147px / 2);
     flex: none;
     background-position-x: 0;
