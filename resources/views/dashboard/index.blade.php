@@ -6,7 +6,7 @@
             <div class="balance-bar">
                 <div class="left">
                     <div class="item">
-                        <div class="title-balance">Баланс</div>
+                        <div class="title-balance">{{__('dashboard.balance')}}</div>
                         <div class="count orange">
                             <span class="icon icon-lg icon-currency"><i class="fa-solid fa-coins"></i></span>
                             <span class="currency" id="balance">{{auth()->user()->getCurrentBalance()}}</span>
@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="item">
-                        <div class="title-balance">Сегодня</div>
+                        <div class="title-balance">{{__('dashboard.today')}}</div>
                         <div class="count">
                             <span class="icon icon-lg icon-currency-gray"><i class="fa-solid fa-coins"></i></span>
                             <span class="currency">{{auth()->user()->getEarningsToday()}}</span>
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="item">
-                        <div class="title-balance">На рефералах</div>
+                        <div class="title-balance">{{__('dashboard.on_referrals')}}</div>
                         <div class="count">
                             <span class="icon icon-lg icon-currency-gray"><i class="fa-solid fa-coins"></i></span>
                             <span class="currency">{{ auth()->user()->getReferralEarnings() }}</span>
@@ -72,7 +72,7 @@
                                 <div class="item">
                                     <div class="i-am-online">
                                         <div class="informer-content">
-                                            <div class="title">Расширение онлайн                                                    <span class="info-tooltip hint" data-hint="Время, которое расширение включено, и имеется постоянное соединение с сервером. Данные обновляются каждые 4 минуты. Если расширение запущено, но продолжительное время отображается 0, напишите в техническую поддержку.">?</span>
+                                            <div class="title">{{__('dashboard.today_online')}}                                                    <span class="info-tooltip hint" data-hint="Время, которое расширение включено, и имеется постоянное соединение с сервером. Данные обновляются каждые 4 минуты. Если расширение запущено, но продолжительное время отображается 0, напишите в техническую поддержку.">?</span>
                                             </div>
                                             <div class="i-counter">0</div>
                                         </div>
@@ -83,7 +83,7 @@
                                 <div class="item">
                                     <div class="i-am-online">
                                         <div class="informer-content">
-                                            <div class="title">Выполнено заданий                                                    <span class="info-tooltip hint " data-hint="Показатель отображает, какой процент заданий выполнен из доступных сегодня. Если вы достигли отметки 100%, значит все задания выполнены. Расширение перейдет в режим ожидания и продолжит работу, как только появятся новые задания или наступят новые сутки (по МСК).">?</span>
+                                            <div class="title">{{__('dashboard.completed_tasks')}}                                                    <span class="info-tooltip hint " data-hint="Показатель отображает, какой процент заданий выполнен из доступных сегодня. Если вы достигли отметки 100%, значит все задания выполнены. Расширение перейдет в режим ожидания и продолжит работу, как только появятся новые задания или наступят новые сутки (по МСК).">?</span>
                                             </div>
                                             <div class="i-counter">0%</div>
                                         </div>
@@ -94,7 +94,7 @@
                                 <div class="item">
                                     <div class="i-am-online">
                                         <div class="informer-content">
-                                            <div class="title">Уровень дохода                                                    <span class="info-tooltip hint" data-hint="Показатель отношения вашего дохода от расширения к среднему по системе с учетом страны. Рассчет ведется в рамках текущих суток.">?</span>
+                                            <div class="title">{{__('dashboard.earning_lvl')}}                                                    <span class="info-tooltip hint" data-hint="Показатель отношения вашего дохода от расширения к среднему по системе с учетом страны. Рассчет ведется в рамках текущих суток.">?</span>
                                             </div>
                                             <div class="i-counter"><span class="dark">0/</span>0</div>
                                         </div>
@@ -110,12 +110,12 @@
                     <div class="payouts">
                         <header class="widjet-title between">
                             <div class="left">
-                                <div class="title">Вывод средств</div>
-                                <div class="description">По курсу 100 поинтов = 0.01 доллар.</div>
+                                <div class="title">{{ __('dashboard.withdraw_title') }}</div>
+                                <div class="description">{{ __('dashboard.withdraw_rate') }}</div>
                             </div>
 
                             <div class="right">
-                                <a href="/payouts" class="black solid">Посмотреть историю выплат</a>
+                                <a href="/payouts" class="black solid">{{ __('dashboard.withdraw_history') }}</a>
                             </div>
                         </header>
 
@@ -155,11 +155,11 @@
 
                             <div class="pay-form-inputs">
                                 <div class="item-label">
-                                    <div class="title">Номер кошелька</div>
+                                    <div class="title">{{ __('dashboard.withdraw_rate') }}</div>
                                     <input id="payout-account" name="account" type="text" autocomplete="off" placeholder="P1000000000">
                                 </div>
                                 <div class="item-label">
-                                    <div class="title">Сумма (в поинтах)</div>
+                                    <div class="title">{{ __('dashboard.amount') }}</div>
                                     <input id="payout-value" name="value" type="text" value="" placeholder="1000" autocomplete="off">
                                     <input id="payout-csrf" name="csrf" type="text" value="119fb8c591c044458f6974351149f670" hidden="">
                                 </div>
@@ -170,10 +170,10 @@
                                 </div>
                                 <div class="item-label">
 
-                                    <button class="btn" id="payout-action">Вывести поинты</button>
-                                    <span class="my-payout-limit">Лимит в сутки:
+                                    <button class="btn" id="payout-action">{{ __('dashboard.withdraw') }}</button>
+                                    <span class="my-payout-limit">{{__('dashboard.day_limit')}}:
                                                     <span class="info-tooltip hint" data-hint="Это максимально доступная сумма к выводу за сутки. Лимит может быть индивидуально увеличен для пользователей с большой реферальной сетью. По всем вопросам обращайтесь в службу поддержки.<br><br><div style='color: #e74141; font-weight: 600;'>Победители конкурса могут сделать разовый вывод точно равный сумме приза.</div>">?</span>
-                                                    <b>5000</b> поинтов                                                </span>
+                                        <b>5000</b> {{trans_choice('dashboard.points', 5000)}}</span>
                                 </div>
                             </div>
 
@@ -187,14 +187,14 @@
                         <div class="referals-top">
                             <header class="widjet-title">
                                 <div class="left">
-                                    <div class="title">Партнерская программа</div>
-                                    <div class="description">Приглашайте новых пользователей и получайте пожизненно 10-5-2% от их дохода.</div>
+                                    <div class="title">{{__('dashboard.affiliate_title')}}</div>
+                                    <div class="description">{{ __('dashboard.affiliate_rates') }}</div>
                                 </div>
                             </header>
 
                             <div class="ref-link-wrapper">
                                 <div class="item-label">
-                                    <div class="title">Реферальная ссылка</div>
+                                    <div class="title">{{ __('dashboard.ref_link') }}</div>
                                     <div class="item-label-wrapper">
                                         <div class="item-label-wrapper-input">
                                             <input id="reflink" type="text" value="https://addon.money/p/{{auth()->user()->id}}" readonly>
@@ -212,26 +212,26 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="refs-title">Количество рефералов</div>
+                            <div class="refs-title">{{ __('dashboard.ref_num') }}</div>
                             <div class="refs-count-wrapper">
                                 <div class="item">
-                                    <div class="ref-count">Первый уровень: <span>{{ $referralsCount['first_level'] }}</span></div>
-                                    <div class="ref-count">Новых сегодня: <span>0</span></div>
+                                    <div class="ref-count">{{__('dashboard.lvl_1')}}: <span>{{ $referralsCount['first_level'] }}</span></div>
+                                    <div class="ref-count">{{ __('dashboard.today_refs') }}: <span>0</span></div>
                                 </div>
                                 <div class="item">
-                                    <div class="ref-count">Второй уровень: <span>{{$referralsCount['second_level']}}</span></div>
+                                    <div class="ref-count">{{ __('dashboard.lvl_2') }}: <span>{{$referralsCount['second_level']}}</span></div>
 
                                 </div>
                                 <div class="item">
-                                    <div class="ref-count">Третий уровень: <span>{{$referralsCount['third_level']}}</span></div>
+                                    <div class="ref-count">{{__('dashboard.lvl_3')}}: <span>{{$referralsCount['third_level']}}</span></div>
 
                                 </div>
                             </div>
                         </div>
 
                         <div class="ref-action-links">
-                            <a href="/referals" class="black solid">Список рефералов</a>
-                            <a href="/referals/promo" class="black solid">Рекламные материалы</a>
+                            <a href="/referals" class="black solid">{{ __('dashboard.ref_list') }}</a>
+                            <a href="/referals/promo" class="black solid">{{ __('dashboard.promo_materials') }}</a>
                         </div>
 
                     </div>

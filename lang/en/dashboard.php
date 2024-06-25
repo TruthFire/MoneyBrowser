@@ -10,6 +10,7 @@ return [
     'earning_lvl' => 'Earning level',
     'withdraw_title' => 'Withdrawals',
     'withdraw' => 'Withdraw',
+    'withdraw_history' => 'View withdraw history',
     'withdraw_rate' => 'At the rate of 100 points = $0.01 USD.',
     'wallet_num' => 'Wallet number',
     'amount' => 'Amount (in points)',
