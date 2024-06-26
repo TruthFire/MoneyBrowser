@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'balance',
+        'withdraw_limit',
     ];
 
     /**
@@ -59,7 +61,7 @@ class User extends Authenticatable
 
     public function getCurrentBalance()
     {
-        return $this->transactions()->sum('amount');
+        return $this->balance;
     }
 
     public function getEarningsToday()
@@ -77,6 +79,20 @@ class User extends Authenticatable
             ->sum('amount');
     }
 
+    public function getLvl1Referrals() {
+        return Referral::where('referred_by', $this->id)->pluck('user_id');
+    }
+
+    public function getLvl2Referrals() {
+        $firstLevelReferrals = $this->getLvl1Referrals();
+        return Referral::whereIn('referred_by', $firstLevelReferrals)->pluck('user_id');
+    }
+
+    public function getLvl3Referrals() {
+        $secondLevelReferrals = $this->getLvl2Referrals();
+        return Referral::whereIn('referred_by', $secondLevelReferrals);
+    }
+
     public function getReferralsCount()
     {
         $firstLevelReferrals = Referral::where('referred_by', $this->id)->pluck('user_id');
@@ -86,8 +102,31 @@ class User extends Authenticatable
         return [
             'first_level' => $firstLevelReferrals->count(),
             'second_level' => $secondLevelReferrals->count(),
-            'third_level' => $thirdLevelReferrals
+            'third_level' => $thirdLevelReferrals,
         ];
+    }
+
+    public function increaseBalance($amount): void
+    {
+        if($amount < 0) {
+            return;
+        }
+
+        $this->balance += $amount;
+        $this->save();
+    }
+
+    public function decreaseBalance($amount): void
+    {
+        if($amount < 0) {
+            return;
+        }
+        if($this->balance < $amount) {
+            return;
+        }
+
+        $this->balance -= $amount;
+        $this->save();
     }
 
 }

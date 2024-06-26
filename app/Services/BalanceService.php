@@ -11,14 +11,25 @@ class BalanceService {
     protected const SECOND_LEVEL_PERCENT = 0.05; // 5%
     protected const THIRD_LEVEL_PERCENT = 0.02;  // 2%
 
-    public function addBalance(User $user, $amount)
+    public function addBalance(User $user, $amount): void
     {
+        $user->increaseBalance($amount);
         $this->createTransaction($user, $amount, 'replenishment', 'Account Replenishment');
         Log::debug('Adding ' . $amount . 'points to user # ' . $user->id);
         $this->processReferralBonuses($user, $amount);
     }
 
-    private function createTransaction(User $user, $amount, $type, $description)
+    public function subtractBalance(User $user, $amount): void {
+        if($amount < 0 || $user->getCurrentBalance() <= $amount) {
+            return;
+        }
+
+        $user->decreaseBalance($amount);
+        $this->createTransaction($user, -$amount, 'withdrawal', 'Balance Withdrawal');
+        Log::debug('Subtracting ' . $amount . 'points from user # ' . $user->id);
+    }
+
+    private function createTransaction(User $user, $amount, $type, $description): void
     {
         Transaction::create([
             'user_id' => $user->id,
@@ -26,16 +37,13 @@ class BalanceService {
             'type' => $type,
             'description' => $description
         ]);
-        Log::debug('Transaction created');
     }
 
-    private function processReferralBonuses(User $user, $amount)
+    private function processReferralBonuses(User $user, $amount): void
     {
-        Log::debug('Processing refs');
         $firstLevelReferrer = $user->referrer;
         if ($firstLevelReferrer) {
             $this->giveReferralBonus($firstLevelReferrer, $amount, self::FIRST_LEVEL_PERCENT, $user->id);
-            Log::debug('Ref lvl1 - ' . $firstLevelReferrer->id);
 
             $secondLevelReferrer = $firstLevelReferrer->referrer;
             if ($secondLevelReferrer) {
@@ -49,7 +57,7 @@ class BalanceService {
         }
     }
 
-    private function giveReferralBonus($user, $amount, $percent, $from)
+    private function giveReferralBonus($user, $amount, $percent, $from): void
     {
         if ($user) {
             $bonus = $amount * $percent;
