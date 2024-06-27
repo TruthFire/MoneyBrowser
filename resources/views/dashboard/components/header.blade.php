@@ -14,19 +14,19 @@
 
                 <ul class="main-menu">
                     <li>
-                        <a href="/referals">Рефералы</a>
+                        <a href="/referals">{{ __('navigation.refs') }}</a>
                     </li>
                     <li>
-                        <a href="/payouts">Выплаты</a>
+                        <a href="/payouts">{{__('navigation.payouts')}}</a>
                     </li>
                     <li>
-                        <a href="/news">Новости</a>
+                        <a href="/news">{{ __('navigation.news') }}</a>
                     </li>
                     <li>
-                        <a href="/help">Помощь</a>
+                        <a href="/help">{{ __('navigation.help') }}</a>
                     </li>
                     <li class="contest">
-                        <a href="/contest">Конкурсы</a>
+                        <a href="/contest">{{ __('navigation.contests') }}</a>
                     </li>
                     <!--<li class="beta">
                         <a href="/beta">beta</a>
@@ -50,7 +50,7 @@
                     <div class="lng-line lng-en {{ $currentLocale === 'en' ? 'active' : '' }}">EN</div>
                 </div>
 
-                <a href="{{route('logout')}}" class="btn-logout">Выход</a>
+                <a href="{{route('logout')}}" class="btn-logout">{{__('navigation.logout')}}</a>
             </div>
 
 
@@ -81,4 +81,5 @@
 
 </header>
 <div class="no-russian">
-    Get 500 points for each active referral who got 500 points!            </div>
+    {{__('navigation.promo')}}
+</div>

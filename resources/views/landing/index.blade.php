@@ -37,8 +37,8 @@
                     </div>
                     <div class="header-wrapper-right">
                         <div class="not-auth-user main">
-                            <button class="btn-auth login">{{ __('auth.register') }}</button>
-                            <button class="btn-auth login">{{ __('auth.login') }}</button>
+                            <a href={{route('register')}} class="btn-auth login">{{ __('auth.register') }}</a>
+                            <a href={{route('login')}} class="btn-auth login">{{ __('auth.login') }}</a>
                         </div>
                     </div>
                 </div>
