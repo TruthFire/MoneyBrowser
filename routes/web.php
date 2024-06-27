@@ -28,3 +28,5 @@ Route::get('lang/{locale}', [LocalizationController::class, 'handleSwitch'])->na
 Route::get('/p/{id}', [ReferralController::class, 'handleReferralVisit'])->name('referral.visit');
 
 Route::get('balance/test', [BalanceController::class, 'test'])->name('balance.test');
+
+Route::get('/news', [DashboardController::class, 'indexNews'])->name('dashboard.news');

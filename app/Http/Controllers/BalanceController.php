@@ -15,7 +15,7 @@ class BalanceController extends Controller
         $user = Auth::user();
 
         if($user) {
-            $this->balanceService->addBalance($user, 100);
+            $this->balanceService->addBalance($user, 100, 'replenishment', 'Test', true);
         }
 
         return redirect('/dashboard');

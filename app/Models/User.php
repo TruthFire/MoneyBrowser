@@ -22,7 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'balance',
-        'withdraw_limit',
+        'current_withdraw_limit',
+        'daily_withdraw_limit',
     ];
 
     /**

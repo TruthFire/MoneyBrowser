@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\NewsResource;
 use App\MoonShine\Resources\TransactionResource;
 use App\MoonShine\Resources\UserResource;
 use Closure;
@@ -52,6 +53,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ]),
             MenuItem::make('Users', new UserResource()),
             MenuItem::make('Transactions', new TransactionResource()),
+            MenuItem::make('News', new NewsResource()),
         ];
     }
 

@@ -2564,6 +2564,7 @@ a.bold {
     left: -32px;
     top: 0;
     z-index: 100;
+    box-sizing: content-box;
 }
 
 .news-item:first-child .news-date:before {

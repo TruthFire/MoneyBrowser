@@ -11,14 +11,15 @@ class BalanceService {
     protected const SECOND_LEVEL_PERCENT = 0.05; // 5%
     protected const THIRD_LEVEL_PERCENT = 0.02;  // 2%
 
-    public function addBalance(User $user, $amount): void
+    public function addBalance(User $user, $amount, $type, $description, $withRefBonus = false): void
     {
         $user->increaseBalance($amount);
-        $this->createTransaction($user, $amount, 'replenishment', 'Account Replenishment');
-        Log::debug('Adding ' . $amount . 'points to user # ' . $user->id);
-        $this->processReferralBonuses($user, $amount);
-    }
+        $this->createTransaction($user, $amount, $type, $description);
 
+        if($withRefBonus) {
+            $this->processReferralBonuses($user, $amount);
+        }
+    }
     public function subtractBalance(User $user, $amount): void {
         if($amount < 0 || $user->getCurrentBalance() <= $amount) {
             return;
@@ -61,7 +62,7 @@ class BalanceService {
     {
         if ($user) {
             $bonus = $amount * $percent;
-            $this->createTransaction($user, $bonus, 'referral_bonus', 'Referral Bonus from user #' . $from);
+            $this->addBalance($user, $bonus, 'referral_bonus', 'Referral Bonus from user #' . $from);
         }
     }
 
