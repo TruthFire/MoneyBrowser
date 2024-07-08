@@ -1603,11 +1603,11 @@ a.solid {
     display: flex;
 }
 
-.not-auth-user.main button {
+.not-auth-user.main a {
     color: #EDEDED;
 }
 
-.not-auth-user button {
+.not-auth-user a {
     margin-left: 20px;
     background: transparent;
     border: none;
@@ -1618,7 +1618,7 @@ a.solid {
     transition: .2s ease color;
 }
 
-.not-auth-user button:hover {
+.not-auth-user a:hover {
     color: #FF8C00;
 }
 

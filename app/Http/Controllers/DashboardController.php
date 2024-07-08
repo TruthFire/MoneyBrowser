@@ -16,7 +16,14 @@ class DashboardController extends Controller
     }
 
     public function indexNews() {
-        $allNews = News::orderBy('created_at', 'desc')->get();
+        $locale = session('locale', app()->getLocale());
+
+        if ($locale === 'ru') {
+            $allNews = News::select('created_at', 'ru_title as title', 'ru_content as content')->get();
+        } else {
+            $allNews = News::select('created_at', 'en_title as title', 'en_content as content')->get();
+        }
+
         return view('dashboard.news', compact('allNews'));
     }
 }
